@@ -17,7 +17,7 @@ export const addFeedItems = async (
 
   newFeedItems.forEach(async (item: Parser.Item) => {
     
-    const { title, link, contentSnippet, enclosure, isoDate } = item
+    const { title, link, content, enclosure, isoDate } = item
     const domain = link?.match(/^https?:\/{2,}(.*?)(?:\/|\?|#|$)/)
 
     const properties: TODO = {
@@ -55,14 +55,14 @@ export const addFeedItems = async (
     else if (ogpImage && validateImageUrl(ogpImage))
       children.push(getExternalImagePayload(ogpImage))
 
-    if (contentSnippet) {
+    if (content) {
       children.push({
         type: 'paragraph',
         paragraph: {
           rich_text: [
             {
               text: {
-                content: contentSnippet
+                content: content
               }
             }
           ]
