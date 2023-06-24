@@ -20,6 +20,6 @@ jobs:
 
       - name: Update Notion Feed
         run: |
-          wget https://github.com/wellWINeo/notion-rss-reader/releases/latest/download/bundle.cjs.gz
+          wget https://github.com/JSagnotti/notion-rss-reader/releases/latest/download/bundle.cjs.gz
           gunzip bundle.cjs.gz
           node bundle.cjs
